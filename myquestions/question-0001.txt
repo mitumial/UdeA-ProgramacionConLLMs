@@ -1,0 +1,10 @@
+**Contexto**: Clasificación de reseñas de productos (positivas/negativas). Dataset `df` contiene: `review_text`, `word_count`, `rating`, `sentiment`. `review_text` es texto crudo; `rating` tiene valores nulos.  
+**Tu Misión**: Crea `procesar_reseñas(df, test_size, max_features)` que:  
+
+- Elimine filas con `sentiment` nulo.
+- Impute `rating` con la mediana.
+- Vectorice `review_text` usando `TfidfVectorizer` (`max_features` como parámetro).
+- Combine `word_count` y `rating` con las características del texto vectorizado.
+- Divida los datos estratificando por `sentiment`.
+- Entrene un `SVC` (`kernel='linear'`).
+- **Devuelva**: `(X_train, X_test, y_train, y_test, vectorizer, svm_model)` donde `vectorizer` es el `TfidfVectorizer` entrenado.

@@ -1,0 +1,10 @@
+**Contexto**: Detección de defectos en piezas industriales. Dataset `df` tiene: `vibration`, `temperature`, `pressure`, `defect_type`. `defect_type` es multiclase (5 clases); `pressure` tiene valores negativos inválidos.  
+**Tu Misión**: Define `analizar_defectos(df, test_size, pca_components)` que:
+
+- Elimine filas con `defect_type` nulo.
+- Reemplace valores negativos en `pressure` con 0.
+- Escale características con `Normalizer` (norma L2).
+- Reduzca dimensionalidad con `PCA` (`n_components=pca_components`).
+- Divida datos estratificando por `defect_type`.
+- Entrene un `DecisionTreeClassifier` (`criterion='entropy'`).
+- **Devuelva**: `(X_pca_train, X_pca_test, y_train, y_test, pca_model)` donde `X_pca` son las componentes principales.

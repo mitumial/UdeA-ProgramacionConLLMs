@@ -1,0 +1,9 @@
+**Contexto**: Segmentación de clientes para marketing. Dataset `df` contiene: `age`, `income`, `purchase_frequency`, `cltv`, `cluster`. `cluster` es la etiqueta; `income` tiene valores nulos estratificados por `age`.  
+**Tu Misión**: Crea `generar_segmentos(df, test_size, n_clusters)` que:
+
+- Elimine filas con `cluster` nulo.
+- Impute `income` con la media por grupo de `age` (discretizado en rangos de 10 años).
+- Escale todas las características con `RobustScaler`.
+- Divida datos usando `StratifiedShuffleSplit`.
+- Entrene un `KMeans` (`n_clusters` como parámetro) usando solo el conjunto de entrenamiento.
+- **Devuelva**: `(X_scaled_train, X_scaled_test, y_train, y_test, kmeans_model)` donde `X_scaled` son DataFrames escalados.
